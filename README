@@ -1,7 +1,11 @@
 This is a working collection of answers to ProjectEuler.com
 
-Problem Number ->   File
-1		    Problem1.java
-2		    Problem2.java
-3		    prime.py
-4		    palidrome.py
+C = Complete
+N = Problem Number
+F = File Name
+
+C N F
+x 1 Problem1.java
+x 2 Problem2.java
+x 3 prime.py
+x 4 palidrome.py

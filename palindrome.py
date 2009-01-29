@@ -1,9 +1,12 @@
 x = 999
 y = 999
 z = x * y
+ax = 0
+ay = 0
+answer = 0
 
 
-def pali(n):
+def ispali(n):
 	zstring = '%(z)03d' % {'z': n}
 	result = 0;
 	for x in range(len(zstring)):
@@ -11,15 +14,25 @@ def pali(n):
 			result = result + 1;
 	return result;
 
-result = pali(z)
-while(result != 0):
-	x = x - 1
+def findNextPali(x, y):
 	z = x * y
-	result = pali(z)
+	result = ispali(z)
+	while (result != 0):
+		x = x - 1
+		z = x * y
+		result = ispali(z)
+	return z, x, y
+
+
+while(y > 0):
+	x = 999;
+	y = y - 1;
+	temp, tx, ty = findNextPali(x, y)
+	if(temp > answer):
+		answer = temp
+		ax = tx
+		ay = ty
 	
-if(result == 0):
-	print '%(#)03d is a Palidrome' % {'#': z}
-	print 'x = %(#)03d' % {'#': x}
-	print 'y = %(#)03d' % {'#': y}
-else:
-	print '%(#)03d is NOT a Palidrome' % {'#': z}
+print '%(#)03d is a Palidrome' % {'#': answer}
+print 'x = %(#)03d' % {'#': ax}
+print 'y = %(#)03d' % {'#': ay}
